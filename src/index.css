@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Base typography & layout
+   --------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-soft-white text-graphite-900 font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight text-graphite-900;
+  }
+
+  /* Visible, consistent focus states for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-soft-white rounded-sm;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-graphite-900;
+  }
+
+  /* Respect reduced motion globally */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reusable component classes
+   --------------------------------------------------------------------------- */
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-py {
+    @apply py-20 md:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-soft-white shadow-soft hover:bg-accent-hover hover:shadow-glow;
+  }
+
+  .btn-secondary {
+    @apply btn border border-graphite-300 bg-soft-white text-graphite-900 hover:border-graphite-900 hover:bg-ivory;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20;
+  }
+
+  .btn-outline-light {
+    @apply btn border border-white/40 text-white hover:bg-white hover:text-graphite-900;
+  }
+
+  .card {
+    @apply rounded-4xl border border-graphite-200/70 bg-soft-white shadow-soft;
+  }
+
+  .card-dark {
+    @apply rounded-4xl border border-white/10 bg-charcoal text-soft-white;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-graphite-200 bg-soft-white px-4 py-3 text-sm text-graphite-900 placeholder-graphite-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium text-graphite-600 transition-colors hover:text-graphite-900;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities
+   --------------------------------------------------------------------------- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Subtle scrollbar for horizontal carousels */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
