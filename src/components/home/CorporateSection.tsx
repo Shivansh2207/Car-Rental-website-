@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
-import SectionReveal from '@/components/common/SectionReveal';
-import SmartImage from '@/components/common/SmartImage';
+import { Reveal, ImageReveal, StaggerContainer, StaggerItem } from '@/components/motion';
 import { buildImage, images } from '@/data/images';
 
 const offerings = [
@@ -19,9 +18,15 @@ export default function CorporateSection() {
   const img = buildImage(images.company.executive, { w: 1000, h: 1200 });
 
   return (
-    <section className="section-py bg-soft-white">
-      <div className="container-px grid items-center gap-14 lg:grid-cols-2">
-        <SectionReveal className="order-2 lg:order-1">
+    <section className="section-py relative overflow-hidden bg-soft-white">
+      {/* faint structural grid — organised, business-like backdrop */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-grid-faint bg-[size:56px_56px] opacity-60 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]"
+        aria-hidden="true"
+      />
+
+      <div className="container-px relative grid items-center gap-14 lg:grid-cols-2">
+        <Reveal direction="right" className="order-2 lg:order-1">
           <span className="eyebrow">Corporate Travel</span>
           <h2 className="mt-4 text-balance text-3xl font-bold leading-[1.1] text-graphite-900 sm:text-4xl md:text-[2.6rem]">
             Professional Mobility for Modern Businesses
@@ -31,16 +36,21 @@ export default function CorporateSection() {
             events, Apex Drive Rentals provides organised travel support for businesses of every size.
           </p>
 
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <StaggerContainer as="ul" className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.07}>
             {offerings.map((o) => (
-              <li key={o} className="flex items-center gap-2.5 text-sm font-medium text-graphite-700">
+              <StaggerItem
+                as="li"
+                key={o}
+                direction="left"
+                className="flex items-center gap-2.5 text-sm font-medium text-graphite-700"
+              >
                 <span className="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/10 text-accent">
                   <Check className="h-3.5 w-3.5" aria-hidden="true" />
                 </span>
                 {o}
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerContainer>
 
           <div className="mt-9">
             <Link to="/corporate" className="btn-primary group">
@@ -48,19 +58,18 @@ export default function CorporateSection() {
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
-        </SectionReveal>
+        </Reveal>
 
-        <SectionReveal className="order-1 lg:order-2" delay={0.15}>
-          <div className="relative overflow-hidden rounded-5xl">
-            <SmartImage
-              src={img}
-              alt="Executive passenger and chauffeur near a premium sedan at an office entrance"
-              wrapperClassName="aspect-[4/5]"
-              className="h-full w-full object-cover"
-            />
+        <div className="order-1 lg:order-2">
+          <ImageReveal
+            src={img}
+            alt="Executive passenger and chauffeur near a premium sedan at an office entrance"
+            from="right"
+            wrapperClassName="aspect-[4/5] rounded-5xl"
+          >
             <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/40 to-transparent" />
-          </div>
-        </SectionReveal>
+          </ImageReveal>
+        </div>
       </div>
     </section>
   );

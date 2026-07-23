@@ -5,6 +5,7 @@ import AnnouncementBar from './AnnouncementBar';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import FloatingContact from './FloatingContact';
+import { ScrollProgress, ScrollToTop } from '@/components/motion';
 import useReducedMotion from '@/hooks/useReducedMotion';
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -13,6 +14,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <ScrollProgress />
       <AnnouncementBar />
       <Navbar />
       <main className="flex-1">
@@ -33,6 +35,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <div className="h-16 lg:hidden" aria-hidden="true" />
       <Footer />
       <FloatingContact />
+      <ScrollToTop />
     </div>
   );
 }

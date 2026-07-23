@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, Car, Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SectionReveal from '@/components/common/SectionReveal';
-import SmartImage from '@/components/common/SmartImage';
+import { Reveal, ImageReveal } from '@/components/motion';
 import { buildImage, images } from '@/data/images';
 import useReducedMotion from '@/hooks/useReducedMotion';
 import { siteData } from '@/data/siteData';
@@ -23,7 +22,7 @@ export default function IntroSection() {
     <section className="section-py bg-soft-white">
       <div className="container-px grid items-center gap-14 lg:grid-cols-2">
         {/* Left: text */}
-        <SectionReveal>
+        <Reveal direction="right">
           <span className="eyebrow">Your Travel Partner</span>
           <h2 className="mt-4 text-balance text-3xl font-bold leading-[1.1] text-graphite-900 sm:text-4xl md:text-[2.6rem]">
             More Than a Rental. A Travel Partner You Can Rely On.
@@ -55,35 +54,29 @@ export default function IntroSection() {
               Talk to Our Team
             </Link>
           </div>
-        </SectionReveal>
+        </Reveal>
 
-        {/* Right: image collage + floating badge */}
-        <SectionReveal delay={0.15} className="relative">
+        {/* Right: image collage (clip-path reveal) + floating badge */}
+        <div className="relative">
           <div className="grid grid-cols-2 gap-4">
-            <div className="col-span-2 overflow-hidden rounded-4xl">
-              <SmartImage
-                src={img1}
-                alt="Premium vehicle exterior ready for a journey"
-                wrapperClassName="aspect-[16/10]"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-4xl">
-              <SmartImage
-                src={img2}
-                alt="Clean and comfortable vehicle interior"
-                wrapperClassName="aspect-[5/4]"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-4xl">
-              <SmartImage
-                src={img3}
-                alt="Professional chauffeur preparing a vehicle"
-                wrapperClassName="aspect-[5/4]"
-                className="h-full w-full object-cover"
-              />
-            </div>
+            <ImageReveal
+              src={img1}
+              alt="Premium vehicle exterior ready for a journey"
+              from="left"
+              wrapperClassName="col-span-2 aspect-[16/10] rounded-4xl"
+            />
+            <ImageReveal
+              src={img2}
+              alt="Clean and comfortable vehicle interior"
+              from="up"
+              wrapperClassName="aspect-[5/4] rounded-4xl"
+            />
+            <ImageReveal
+              src={img3}
+              alt="Professional chauffeur preparing a vehicle"
+              from="down"
+              wrapperClassName="aspect-[5/4] rounded-4xl"
+            />
           </div>
 
           {/* Floating experience badge */}
@@ -102,7 +95,7 @@ export default function IntroSection() {
               <p className="text-xs text-graphite-500">for More Than 10 Years</p>
             </div>
           </motion.div>
-        </SectionReveal>
+        </div>
       </div>
     </section>
   );

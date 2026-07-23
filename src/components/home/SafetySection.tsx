@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/common/SectionHeading';
 import SectionReveal from '@/components/common/SectionReveal';
-import SmartImage from '@/components/common/SmartImage';
+import { ImageReveal } from '@/components/motion';
 import { buildImage, images } from '@/data/images';
 import useReducedMotion from '@/hooks/useReducedMotion';
 
@@ -32,17 +32,13 @@ export default function SafetySection() {
         </SectionReveal>
 
         <div className="mt-14 grid items-center gap-14 lg:grid-cols-2">
-          {/* Image side */}
-          <SectionReveal delay={0.1}>
-            <div className="overflow-hidden rounded-5xl border border-graphite-200/70 shadow-card">
-              <SmartImage
-                src={img}
-                alt="Vehicle being cleaned and inspected before a journey"
-                wrapperClassName="aspect-[4/3]"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </SectionReveal>
+          {/* Image side — clip-path reveal */}
+          <ImageReveal
+            src={img}
+            alt="Vehicle being cleaned and inspected before a journey"
+            from="left"
+            wrapperClassName="aspect-[4/3] rounded-5xl border border-graphite-200/70 shadow-card"
+          />
 
           {/* Checklist side */}
           <SectionReveal delay={0.15}>
