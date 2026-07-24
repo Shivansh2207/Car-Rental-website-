@@ -6,6 +6,7 @@ import Icon from '@/components/common/Icon';
 import FaqAccordion from '@/components/common/FaqAccordion';
 import FinalCta from '@/components/common/FinalCta';
 import SmartImage from '@/components/common/SmartImage';
+import Carousel from '@/components/common/Carousel';
 import { services, getServiceBySlug } from '@/data/servicesData';
 import { whatsappLink, siteData } from '@/data/siteData';
 import { breadcrumbLd } from '@/utils/jsonLd';
@@ -28,7 +29,7 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="bg-graphite-900 py-28 text-soft-white md:py-36">
+      <section className="page-hero relative overflow-hidden bg-graphite-900 py-28 text-soft-white md:py-36">
         <div className="container-px">
           <span className="eyebrow text-accent-soft">What We Offer</span>
           <h1 className="mt-4 max-w-2xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
@@ -44,9 +45,9 @@ export default function ServicesPage() {
       {/* Services list */}
       <section className="section-py bg-soft-white">
         <div className="container-px">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <Carousel ariaLabel="All rental services" trackClassName="px-1 pb-3">
             {services.map((s, i) => (
-              <SectionReveal key={s.slug} delay={i * 0.06}>
+              <SectionReveal key={s.slug} delay={i * 0.06} className="w-[84%] flex-none snap-start sm:w-[48%] lg:w-[31.5%]">
                 <Link
                   to={`/services/${s.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-4xl border border-graphite-200/70 bg-soft-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
@@ -73,7 +74,7 @@ export default function ServicesPage() {
                 </Link>
               </SectionReveal>
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 

@@ -66,7 +66,7 @@ export default function CorporatePage() {
       />
 
       {/* Hero */}
-      <section className="relative min-h-[50vh] overflow-hidden bg-graphite-900">
+      <section className="page-hero relative min-h-[50vh] overflow-hidden bg-graphite-900">
         <img src={heroImg} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/90 to-graphite-900/60" />
         <div className="container-px relative py-28 md:py-36">

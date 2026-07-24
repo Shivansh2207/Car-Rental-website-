@@ -13,7 +13,7 @@ export default function TermsPage() {
         jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Terms & Conditions', path: '/terms' }])}
       />
 
-      <section className="bg-graphite-900 py-28 text-soft-white md:py-36">
+      <section className="page-hero relative overflow-hidden bg-graphite-900 py-28 text-soft-white md:py-36">
         <div className="container-px">
           <h1 className="max-w-2xl font-heading text-4xl font-bold leading-tight sm:text-5xl">Terms &amp; Conditions</h1>
           <p className="mt-4 text-soft-white/60">Last updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</p>

@@ -50,79 +50,79 @@ export function buildImage(id: string, opts: ImageOptions = {}): string {
  */
 export const images = {
   hero: {
-    sedanRoad: 'photo-1503376780353-7e6692767b70', // dark sedan on coastal road
-    suvNight: 'photo-1511919884226-fd3cad34687c', // SUV headlight at night
-    highwaySunset: 'photo-1449965408869-eaa3f722e40d', // highway into sunset
+    sedanRoad: 'photo-1492144534655-ae79c964c9d7', // dark sedan on coastal road
+    suvNight: 'photo-1503736334956-4c8f8e92946d', // SUV headlight at night
+    highwaySunset: 'photo-1473445361085-b9a07f55608b', // highway into sunset
   },
 
   fleet: {
     // Representative imagery per vehicle. Replace with model-specific shots.
-    sedan: 'photo-1549399542-7e3f8b79c341', // compact sedan side
-    sedanAlt: 'photo-1605559424843-9e4c228401d8', // sedan on road
-    suv: 'photo-1519440777-1a68b9c45b87', // white SUV
-    suvAlt: 'photo-1606664525542-6785c92aa5b8', // SUV rugged
-    muv: 'photo-1609521263047-f8f205293f24', // people mover / MPV
-    luxury: 'photo-1552519507-da3b142c6e3d', // luxury sports
-    luxurySedan: 'photo-1618843479313-40f8afb4b4d8', // executive sedan
-    traveller: 'photo-1570125909232-eb263c188f7e', // van / traveller
+    sedan: 'photo-1542282088-72c9c27ed0cd', // compact sedan side
+    sedanAlt: 'photo-1558981806-ec527fa84c39', // sedan on road
+    suv: 'photo-1503736334956-4c8f8e92946d', // white SUV
+    suvAlt: 'photo-1517154421773-0529f29ea451', // SUV rugged
+    muv: 'photo-1518005020951-eccb494ad742', // people mover / MPV
+    luxury: 'photo-1492144534655-ae79c964c9d7', // luxury sports
+    luxurySedan: 'photo-1517248135467-4c7edcad34c4', // executive sedan
+    traveller: 'photo-1488085061387-422e29b40080', // van / traveller
   },
 
   services: {
-    airport: 'photo-1436491865332-7a61a109cc05', // airport terminal / plane
-    local: 'photo-1502877338535-766e1452684a', // city street traffic
-    outstation: 'photo-1469854523086-cc02fe5d8800', // mountain road trip
-    corporate: 'photo-1556761175-b413da4baf72', // business people
-    wedding: 'photo-1469371670807-013ccf25f16a', // wedding/celebration
-    sightseeing: 'photo-1567196186615-1361a07dda5d', // monument
-    oneway: 'photo-1502672260266-1c1ef2d93688', // interior drive
-    monthly: 'photo-1449965408869-eaa3f722e40d',
-    group: 'photo-1570125909232-eb263c188f7e',
-    hotel: 'photo-1551882547-ff40c63fe5fa', // hotel entrance
+    airport: 'photo-1488646953014-85cb44e25828', // airport terminal / plane
+    local: 'photo-1500534623283-312aade485b7', // city street traffic
+    outstation: 'photo-1501785888041-af3ef285b470', // mountain road trip
+    corporate: 'photo-1497366811353-6870744d04b2', // business people
+    wedding: 'photo-1517154421773-0529f29ea451', // wedding/celebration
+    sightseeing: 'photo-1539635278303-d4002c07eae3', // monument
+    oneway: 'photo-1503736334956-4c8f8e92946d', // interior drive
+    monthly: 'photo-1473445361085-b9a07f55608b',
+    group: 'photo-1488085061387-422e29b40080',
+    hotel: 'photo-1518005020951-eccb494ad742', // hotel entrance
   },
 
   destinations: {
-    lonavala: 'photo-1626621341517-bbf3d9990a38', // misty hills
-    khandala: 'photo-1599661046827-dacde6976549',
-    pune: 'photo-1597223557454-ee5ed14d6d8c',
-    nashik: 'photo-1593179869787-3bcd0c5146a6', // vineyards
-    shirdi: 'photo-1604661178332-9bc3ae5d0c7b',
-    mahabaleshwar: 'photo-1626621341517-bbf3d9990a38',
-    alibaug: 'photo-1507525428034-b723cf961d3e', // beach
-    matheran: 'photo-1506905925346-21bda4d32df4', // forest hill
-    goa: 'photo-1512343879784-a960bf40e7b9', // goa beach
-    surat: 'photo-1565967511849-76a60a516170',
-    daman: 'photo-1519046904884-53103b34b206',
-    aurangabad: 'photo-1609128322432-2484d8f6d7c0',
+    lonavala: 'photo-1501785888041-af3ef285b470', // misty hills
+    khandala: 'photo-1501854140801-50d01698950b',
+    pune: 'photo-1500534623283-312aade485b7',
+    nashik: 'photo-1493246507139-91e8fad9978e', // vineyards
+    shirdi: 'photo-1539635278303-d4002c07eae3',
+    mahabaleshwar: 'photo-1501785888041-af3ef285b470',
+    alibaug: 'photo-1504608524841-42fe6f032b4b', // beach
+    matheran: 'photo-1511497584788-876760111969', // forest hill
+    goa: 'photo-1500534623283-312aade485b7', // goa beach
+    surat: 'photo-1516026672322-bc52d61a55d5',
+    daman: 'photo-1530789253388-582c481c54b0',
+    aurangabad: 'photo-1526772662000-3f88f10405ff',
   },
 
   gallery: {
-    exterior: 'photo-1503376780353-7e6692767b70',
-    interior: 'photo-1494976388531-d1058494cdd8',
-    airport: 'photo-1436491865332-7a61a109cc05',
-    corporate: 'photo-1556761175-b413da4baf72',
-    wedding: 'photo-1469371670807-013ccf25f16a',
-    outstation: 'photo-1469854523086-cc02fe5d8800',
-    vehicleCare: 'photo-1632823469850-2f77dd9c7f93', // car cleaning/detailing
-    family: 'photo-1502920917128-1aa500764cbd',
-    chauffeur: 'photo-1556122071-e404eaedb77f', // driver / person
+    exterior: 'photo-1492144534655-ae79c964c9d7',
+    interior: 'photo-1542282088-72c9c27ed0cd',
+    airport: 'photo-1488646953014-85cb44e25828',
+    corporate: 'photo-1497366811353-6870744d04b2',
+    wedding: 'photo-1517154421773-0529f29ea451',
+    outstation: 'photo-1501785888041-af3ef285b470',
+    vehicleCare: 'photo-1558981806-ec527fa84c39', // car cleaning/detailing
+    family: 'photo-1530789253388-582c481c54b0',
+    chauffeur: 'photo-1497366811353-6870744d04b2', // driver / person
   },
 
   company: {
-    team: 'photo-1521791136064-7986c2920216', // team handshake
-    chauffeurDoor: 'photo-1556122071-e404eaedb77f',
-    city: 'photo-1570168007204-dfb528c6958f', // Mumbai skyline
-    carCare: 'photo-1632823469850-2f77dd9c7f93',
-    nightRoad: 'photo-1449965408869-eaa3f722e40d',
-    executive: 'photo-1556761175-b413da4baf72',
+    team: 'photo-1497366811353-6870744d04b2', // team handshake
+    chauffeurDoor: 'photo-1518005020951-eccb494ad742',
+    city: 'photo-1516026672322-bc52d61a55d5', // Mumbai skyline
+    carCare: 'photo-1558981806-ec527fa84c39',
+    nightRoad: 'photo-1473445361085-b9a07f55608b',
+    executive: 'photo-1497366811353-6870744d04b2',
   },
 
   blog: {
-    roadTrips: 'photo-1469854523086-cc02fe5d8800',
-    chooseCar: 'photo-1549399542-7e3f8b79c341',
-    airportTips: 'photo-1436491865332-7a61a109cc05',
-    monsoon: 'photo-1626621341517-bbf3d9990a38',
-    corporateMobility: 'photo-1556761175-b413da4baf72',
-    outstationGuide: 'photo-1502877338535-766e1452684a',
+    roadTrips: 'photo-1501785888041-af3ef285b470',
+    chooseCar: 'photo-1542282088-72c9c27ed0cd',
+    airportTips: 'photo-1488646953014-85cb44e25828',
+    monsoon: 'photo-1501854140801-50d01698950b',
+    corporateMobility: 'photo-1497366811353-6870744d04b2',
+    outstationGuide: 'photo-1500534623283-312aade485b7',
   },
 } as const;
 

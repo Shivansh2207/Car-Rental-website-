@@ -63,18 +63,21 @@ export default function IntroSection() {
               src={img1}
               alt="Premium vehicle exterior ready for a journey"
               from="left"
+              eager
               wrapperClassName="col-span-2 aspect-[16/10] rounded-4xl"
             />
             <ImageReveal
               src={img2}
               alt="Clean and comfortable vehicle interior"
               from="up"
+              eager
               wrapperClassName="aspect-[5/4] rounded-4xl"
             />
             <ImageReveal
               src={img3}
               alt="Professional chauffeur preparing a vehicle"
               from="down"
+              eager
               wrapperClassName="aspect-[5/4] rounded-4xl"
             />
           </div>

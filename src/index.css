@@ -72,7 +72,7 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-none px-7 py-3.5 text-sm font-semibold uppercase tracking-wide transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-none px-7 py-3.5 text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
   }
 
   .btn-primary {
@@ -92,7 +92,7 @@
   }
 
   .card {
-    @apply rounded-4xl border border-graphite-200/70 bg-soft-white shadow-soft;
+    @apply rounded-4xl border border-graphite-200/70 bg-soft-white shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-card;
   }
 
   .card-dark {
@@ -106,6 +106,51 @@
   .nav-link {
     @apply relative text-sm font-medium text-graphite-600 transition-colors hover:text-graphite-900;
   }
+
+  .motion-float {
+    animation: motion-float 5s ease-in-out infinite;
+  }
+
+  .motion-shimmer {
+    background-size: 200% 100%;
+    animation: motion-shimmer 4s ease-in-out infinite;
+  }
+
+  /* Shared interior-page hero treatment: ambient light movement plus a
+     staggered entrance for the eyebrow, heading and supporting copy. */
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: -35%;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 18% 40%, rgba(249, 115, 22, 0.2), transparent 28%),
+      radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.08), transparent 24%);
+    animation: page-hero-drift 16s ease-in-out infinite alternate;
+  }
+
+  .page-hero .container-px {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-hero > img {
+    transform: scale(1.06);
+    animation: page-hero-image-drift 18s ease-in-out infinite alternate;
+  }
+
+  .page-hero .eyebrow,
+  .page-hero h1,
+  .page-hero p {
+    animation: page-hero-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .page-hero h1 {
+    @apply text-soft-white;
+  }
+
+  .page-hero h1 { animation-delay: 90ms; }
+  .page-hero p { animation-delay: 180ms; }
 }
 
 /* ---------------------------------------------------------------------------
@@ -127,4 +172,29 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+@keyframes motion-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes motion-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes page-hero-drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(0.98); }
+  to { transform: translate3d(3%, 2%, 0) scale(1.04); }
+}
+
+@keyframes page-hero-enter {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(8px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+
+@keyframes page-hero-image-drift {
+  from { transform: scale(1.06) translate3d(-1%, -1%, 0); }
+  to { transform: scale(1.12) translate3d(1%, 1%, 0); }
 }

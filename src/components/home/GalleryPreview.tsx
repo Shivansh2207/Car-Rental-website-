@@ -5,23 +5,12 @@ import SectionHeading from '@/components/common/SectionHeading';
 import SectionReveal from '@/components/common/SectionReveal';
 import { gallery, galleryCategories } from '@/data/galleryData';
 import { cn } from '@/utils/cn';
+import Carousel from '@/components/common/Carousel';
 
 export default function GalleryPreview() {
   const [active, setActive] = useState<string>('All');
 
   const filtered = active === 'All' ? gallery.slice(0, 8) : gallery.filter((g) => g.category === active).slice(0, 8);
-
-  // masonry-style: alternate aspect ratios
-  const heights: Record<number, string> = {
-    0: 'h-72',
-    1: 'h-56',
-    2: 'h-64',
-    3: 'h-48',
-    4: 'h-72',
-    5: 'h-56',
-    6: 'h-64',
-    7: 'h-52',
-  };
 
   return (
     <section className="section-py bg-ivory/40">
@@ -55,11 +44,11 @@ export default function GalleryPreview() {
           </div>
         </SectionReveal>
 
-        <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+        <Carousel ariaLabel="Gallery preview" className="mt-10" trackClassName="px-1 pb-3">
           {filtered.map((item, i) => (
-            <SectionReveal key={item.id} delay={(i % 3) * 0.08}>
-              <div className="group relative mb-4 overflow-hidden rounded-3xl break-inside-avoid">
-                <div className={cn(heights[i % 8], 'overflow-hidden rounded-3xl')}>
+            <SectionReveal key={item.id} delay={(i % 3) * 0.08} className="w-[82%] flex-none snap-start sm:w-[46%] lg:w-[31.5%]">
+              <div className="group relative h-[360px] overflow-hidden rounded-3xl sm:h-[420px]">
+                <div className="h-full overflow-hidden rounded-3xl">
                   <img
                     src={item.src}
                     alt={item.alt}
@@ -78,7 +67,7 @@ export default function GalleryPreview() {
               </div>
             </SectionReveal>
           ))}
-        </div>
+        </Carousel>
 
         <SectionReveal className="mt-12 flex justify-center" delay={0.1}>
           <Link to="/gallery" className="btn-secondary group">

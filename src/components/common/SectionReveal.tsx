@@ -28,11 +28,19 @@ export default function SectionReveal({
   const MotionTag = motion[as];
 
   const variants: Variants = {
-    hidden: { opacity: 0, y: reduced ? 0 : 28 },
+    hidden: reduced
+      ? { opacity: 0 }
+      : { opacity: 0, y: 34, scale: 0.975, filter: 'blur(7px)' },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: reduced ? 0.01 : 0.72,
+        ease: [0.22, 1, 0.36, 1],
+        delay,
+      },
     },
   };
 
@@ -43,7 +51,7 @@ export default function SectionReveal({
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.08, margin: '0px 0px -8% 0px' }}
     >
       {children}
     </MotionTag>

@@ -3,22 +3,20 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { cn } from '@/utils/cn';
-import useScrolled from '@/hooks/useScrolled';
 import useReducedMotion from '@/hooks/useReducedMotion';
 import Logo from '@/components/common/Logo';
 import { navLinks, phoneLink, whatsappLink, siteData } from '@/data/siteData';
 
 export default function Navbar() {
-  const scrolled = useScrolled(40);
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
   const reduced = useReducedMotion();
 
-  // Determine if we are on a page whose hero is dark (transparent navbar)
-  const isHome = pathname === '/';
-
-  // solid once scrolled OR not on home (interior pages have light hero tops)
-  const solid = scrolled || !isHome;
+  // The navbar occupies its own row above the hero, so it needs a light
+  // surface from the first paint. A transparent state here would make the
+  // white logo and navigation links disappear into the white page background
+  // until the user scrolls.
+  const solid = true;
 
   useEffect(() => {
     setMenuOpen(false);
@@ -33,7 +31,10 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header
+    <motion.header
+      initial={reduced ? false : { opacity: 0, y: -18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: reduced ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         'sticky top-0 z-40 transition-all duration-500',
         solid
@@ -176,6 +177,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

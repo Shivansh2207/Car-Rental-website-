@@ -17,7 +17,7 @@ export default function DestinationsPage() {
         jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Destinations', path: '/destinations' }])}
       />
 
-      <section className="bg-graphite-900 py-28 text-soft-white md:py-36">
+      <section className="page-hero relative overflow-hidden bg-graphite-900 py-28 text-soft-white md:py-36">
         <div className="container-px">
           <span className="eyebrow text-accent-soft">Destinations</span>
           <h1 className="mt-4 max-w-2xl font-heading text-4xl font-bold leading-tight sm:text-5xl">

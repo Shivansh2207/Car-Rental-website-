@@ -4,6 +4,7 @@ import SectionHeading from '@/components/common/SectionHeading';
 import SectionReveal from '@/components/common/SectionReveal';
 import SmartImage from '@/components/common/SmartImage';
 import Icon from '@/components/common/Icon';
+import Carousel from '@/components/common/Carousel';
 import { services } from '@/data/servicesData';
 
 export default function ServicesOverview() {
@@ -21,9 +22,9 @@ export default function ServicesOverview() {
           />
         </SectionReveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Carousel ariaLabel="Featured rental services" className="mt-14" trackClassName="px-1 pb-3">
           {featured.map((service, i) => (
-            <SectionReveal key={service.slug} delay={i * 0.08}>
+            <SectionReveal key={service.slug} delay={i * 0.06} className="w-[84%] flex-none snap-start sm:w-[48%] lg:w-[31.5%]">
               <article className="group flex h-full flex-col overflow-hidden rounded-4xl border border-graphite-200/70 bg-soft-white shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <SmartImage
@@ -51,7 +52,7 @@ export default function ServicesOverview() {
               </article>
             </SectionReveal>
           ))}
-        </div>
+        </Carousel>
 
         <SectionReveal className="mt-12 flex justify-center" delay={0.1}>
           <Link to="/services" className="btn-secondary group">

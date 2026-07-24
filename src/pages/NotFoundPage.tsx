@@ -16,7 +16,7 @@ export default function NotFoundPage() {
         noindex
       />
 
-      <section className="flex min-h-[70vh] items-center justify-center bg-graphite-900 px-5 text-center">
+      <section className="page-hero relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-graphite-900 px-5 text-center">
         <motion.div
           initial={reduced ? { opacity: 0 } : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

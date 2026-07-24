@@ -134,7 +134,7 @@ export default function HeroSection() {
         initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.1, duration: 0.6 }}
-        className="absolute right-6 top-28 hidden h-24 w-24 flex-col items-center justify-center rounded-full border border-white/15 bg-accent/90 text-center text-soft-white shadow-glow md:flex lg:right-12 lg:h-28 lg:w-28"
+        className="motion-float absolute right-6 top-28 hidden h-24 w-24 flex-col items-center justify-center rounded-full border border-white/15 bg-accent/90 text-center text-soft-white shadow-glow md:flex lg:right-12 lg:h-28 lg:w-28"
       >
         <span className="font-heading text-2xl font-bold lg:text-3xl">24/7</span>
         <span className="text-[10px] font-semibold uppercase tracking-wide">Available</span>

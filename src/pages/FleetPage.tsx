@@ -11,6 +11,7 @@ import { breadcrumbLd } from '@/utils/jsonLd';
 import { cn } from '@/utils/cn';
 import type { VehicleCategory } from '@/types/site';
 import SmartImage from '@/components/common/SmartImage';
+import Carousel from '@/components/common/Carousel';
 import { whatsappLink } from '@/data/siteData';
 import { MessageCircle, Snowflake, Users, Briefcase, ArrowRightLeft } from 'lucide-react';
 
@@ -29,7 +30,7 @@ export default function FleetPage() {
         jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Our Fleet', path: '/fleet' }])}
       />
 
-      <section className="bg-graphite-900 py-28 text-soft-white md:py-36">
+      <section className="page-hero relative overflow-hidden bg-graphite-900 py-28 text-soft-white md:py-36">
         <div className="container-px">
           <span className="eyebrow text-accent-soft">Our Fleet</span>
           <h1 className="mt-4 max-w-2xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
@@ -198,11 +199,13 @@ function VehicleDetail({ vehicle }: { vehicle: NonNullable<ReturnType<typeof get
           {similar.length > 0 && (
             <SectionReveal className="mt-14">
               <h2 className="font-heading text-xl font-bold text-graphite-900">Similar Vehicles</h2>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Carousel ariaLabel="Similar vehicles" className="mt-6" trackClassName="px-1 pb-3">
                 {similar.map((v) => (
-                  <FleetCard key={v.id} vehicle={v} />
+                  <div key={v.id} className="w-[84%] flex-none snap-start sm:w-[48%] lg:w-[31.5%]">
+                    <FleetCard vehicle={v} />
+                  </div>
                 ))}
-              </div>
+              </Carousel>
             </SectionReveal>
           )}
 
