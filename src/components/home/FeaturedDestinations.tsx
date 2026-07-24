@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 import SectionHeading from '@/components/common/SectionHeading';
 import SectionReveal from '@/components/common/SectionReveal';
+import { HorizontalScroll } from '@/components/motion';
 import { destinations } from '@/data/destinationsData';
 import useReducedMotion from '@/hooks/useReducedMotion';
 
 export default function FeaturedDestinations() {
-  // Show 8 on home
-  const featured = destinations.slice(0, 8);
+  const featured = destinations.slice(0, 7);
   const reduced = useReducedMotion();
 
   return (
     <section className="section-py relative overflow-hidden bg-ivory/40">
-      {/* faint animated map-grid background */}
+      {/* faint map-grid background */}
       <div className="pointer-events-none absolute inset-0 bg-grid-faint bg-[size:64px_64px] opacity-50" aria-hidden="true" />
 
       <div className="container-px relative">
@@ -24,15 +24,27 @@ export default function FeaturedDestinations() {
             subtitle="A few of the destinations our travellers head to most. Travel time depends on route, traffic and weather."
           />
         </SectionReveal>
+      </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((d, i) => (
-            <SectionReveal key={d.slug} delay={(i % 4) * 0.08}>
-              <DestinationCard slug={d.slug} name={d.name} image={d.image} alt={d.imageAlt} bestFor={d.bestFor} description={d.description} reduced={reduced} />
-            </SectionReveal>
-          ))}
-        </div>
+      {/* Full-bleed horizontal band — drifts with scroll on desktop (GSAP),
+          swipeable on touch. */}
+      <HorizontalScroll className="relative mt-14" trackClassName="px-5 sm:px-8 lg:px-16 xl:px-20">
+        {featured.map((d) => (
+          <div key={d.slug} className="w-[280px] flex-none sm:w-[340px] lg:w-[400px]">
+            <DestinationCard
+              slug={d.slug}
+              name={d.name}
+              image={d.image}
+              alt={d.imageAlt}
+              bestFor={d.bestFor}
+              description={d.description}
+              reduced={reduced}
+            />
+          </div>
+        ))}
+      </HorizontalScroll>
 
+      <div className="container-px relative">
         <SectionReveal className="mt-12 flex justify-center" delay={0.1}>
           <Link to="/destinations" className="btn-secondary group">
             Explore All Destinations
@@ -81,7 +93,7 @@ function DestinationCard({
       to={`/destinations#${slug}`}
       onMouseMove={onMove}
       onMouseLeave={() => setOffset({ x: 0, y: 0 })}
-      className="group relative block h-80 overflow-hidden rounded-4xl border border-graphite-200/60 shadow-soft"
+      className="group relative block h-[440px] overflow-hidden border border-graphite-200/60 shadow-soft"
     >
       <img
         src={image}
@@ -93,13 +105,13 @@ function DestinationCard({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/90 via-graphite-950/25 to-transparent" />
 
-      <div className="absolute inset-x-0 bottom-0 p-5 text-soft-white">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide backdrop-blur-sm">
+      <div className="absolute inset-x-0 bottom-0 p-6 text-soft-white">
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-white/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide backdrop-blur-sm">
           <MapPin className="h-3 w-3" aria-hidden="true" /> {bestFor}
         </span>
         <h3 className="mt-3 font-heading text-2xl font-bold">{name}</h3>
-        <p className="mt-1 line-clamp-2 text-xs text-soft-white/75">{description}</p>
-        <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-accent-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <p className="mt-1 line-clamp-2 text-sm text-soft-white/75">{description}</p>
+        <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-accent-soft opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           Explore Destination <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </p>
       </div>

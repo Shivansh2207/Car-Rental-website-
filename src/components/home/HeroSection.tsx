@@ -2,11 +2,11 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone, MousePointerClick } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { buildImage, images } from '@/data/images';
 import { siteData, phoneLink } from '@/data/siteData';
 import AnimatedCounter from '@/components/common/AnimatedCounter';
 import RouteLine from '@/components/common/RouteLine';
-import { TextReveal, MagneticButton } from '@/components/motion';
+import { TextReveal, MagneticButton, VideoBackground } from '@/components/motion';
+import { videos } from '@/data/videos';
 import useReducedMotion from '@/hooks/useReducedMotion';
 import useIsMobile from '@/hooks/useIsMobile';
 
@@ -14,7 +14,7 @@ export default function HeroSection() {
   const reduced = useReducedMotion();
   const isMobile = useIsMobile();
   const heroRef = useRef<HTMLElement>(null);
-  const bg = buildImage(images.hero.sedanRoad, { w: 1920, h: 1280, q: 70, eager: true });
+  const heroVideo = videos.heroRoad;
 
   // Scroll-linked layered parallax. Distances are damped on mobile and
   // flattened entirely under reduced motion for stable scrolling.
@@ -45,16 +45,16 @@ export default function HeroSection() {
       ref={heroRef}
       className="relative flex min-h-[92vh] items-center overflow-hidden bg-graphite-900"
     >
-      {/* Background image — scroll parallax (drift + scale), fade in on load */}
+      {/* Background — cinematic muted video with a guaranteed poster.
+          Wrapped in a scroll-parallax layer (drift + scale). */}
       <motion.div className="absolute inset-0" style={{ y: imageY, scale: imageScale }}>
-        <motion.img
-          src={bg}
-          alt="A clean premium sedan travelling on a scenic urban road at dusk"
-          className="absolute inset-x-0 top-[-10%] h-[120%] w-full object-cover"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: reduced ? 0.3 : 1.2, ease: 'easeOut' }}
-        />
+        <div className="absolute inset-x-0 top-[-16%] h-[132%]">
+          <VideoBackground
+            src={heroVideo.src}
+            poster={heroVideo.poster}
+            posterAlt="A clean premium sedan travelling on a scenic urban road at dusk"
+          />
+        </div>
       </motion.div>
 
       {/* Gradient overlays for legibility */}
@@ -73,7 +73,7 @@ export default function HeroSection() {
           <motion.div variants={container} initial="hidden" animate="visible" className="max-w-2xl">
             <motion.span
               variants={item}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-soft-white/90 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 rounded-none border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-soft-white/90 backdrop-blur-sm"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Trusted Car Rental Service Across Mumbai
             </motion.span>

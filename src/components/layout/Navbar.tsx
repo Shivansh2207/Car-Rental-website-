@@ -87,7 +87,7 @@ export default function Navbar() {
           <Link
             to="/contact"
             className={cn(
-              'hidden rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 lg:inline-flex',
+              'hidden rounded-none px-5 py-2.5 text-sm font-semibold transition-all duration-300 lg:inline-flex',
               solid
                 ? 'bg-accent text-soft-white hover:bg-accent-hover hover:shadow-glow'
                 : 'bg-soft-white text-graphite-900 hover:bg-ivory',

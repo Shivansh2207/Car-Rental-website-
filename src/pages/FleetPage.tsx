@@ -63,7 +63,7 @@ function FleetListing() {
               onClick={() => setCategory(tab.value)}
               aria-pressed={category === tab.value}
               className={cn(
-                'flex-none rounded-full px-5 py-2.5 text-sm font-semibold transition-all',
+                'flex-none rounded-none px-5 py-2.5 text-sm font-semibold transition-all',
                 category === tab.value
                   ? 'bg-graphite-900 text-soft-white shadow-soft'
                   : 'border border-graphite-200 bg-soft-white text-graphite-600 hover:border-graphite-400',
@@ -148,7 +148,7 @@ function VehicleDetail({ vehicle }: { vehicle: NonNullable<ReturnType<typeof get
 
             {/* Details */}
             <SectionReveal delay={0.1}>
-              <span className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+              <span className="inline-flex rounded-none bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
                 {vehicle.category} {vehicle.tier === 'Premium' ? '· Premium' : ''}
               </span>
               <h1 className="mt-3 font-heading text-3xl font-bold text-graphite-900 sm:text-4xl">
@@ -187,7 +187,7 @@ function VehicleDetail({ vehicle }: { vehicle: NonNullable<ReturnType<typeof get
             <h2 className="font-heading text-xl font-bold text-graphite-900">Comfort Features</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {vehicle.features.map((f) => (
-                <span key={f} className="rounded-full border border-graphite-200 bg-soft-white px-4 py-2 text-sm text-graphite-700">
+                <span key={f} className="rounded-none border border-graphite-200 bg-soft-white px-4 py-2 text-sm text-graphite-700">
                   {f}
                 </span>
               ))}

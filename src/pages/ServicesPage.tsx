@@ -155,7 +155,7 @@ function ServiceDetail({ service }: { service: NonNullable<ReturnType<typeof get
             <h2 className="font-heading text-xl font-bold text-graphite-900">Common Use Cases</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {service.useCases.map((u) => (
-                <span key={u} className="rounded-full border border-graphite-200 bg-ivory px-4 py-2 text-sm text-graphite-700">
+                <span key={u} className="rounded-none border border-graphite-200 bg-ivory px-4 py-2 text-sm text-graphite-700">
                   {u}
                 </span>
               ))}
@@ -166,7 +166,7 @@ function ServiceDetail({ service }: { service: NonNullable<ReturnType<typeof get
             <h2 className="font-heading text-xl font-bold text-graphite-900">Suitable Vehicles</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {service.suitableVehicles.map((v) => (
-                <span key={v} className="rounded-full border border-accent/30 bg-accent/5 px-4 py-2 text-sm font-medium text-accent">
+                <span key={v} className="rounded-none border border-accent/30 bg-accent/5 px-4 py-2 text-sm font-medium text-accent">
                   {v}
                 </span>
               ))}

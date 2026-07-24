@@ -43,7 +43,7 @@ export default function GalleryPreview() {
                 onClick={() => setActive(cat)}
                 aria-pressed={active === cat}
                 className={cn(
-                  'flex-none rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300',
+                  'flex-none rounded-none px-4 py-2 text-sm font-semibold transition-all duration-300',
                   active === cat
                     ? 'bg-graphite-900 text-soft-white'
                     : 'border border-graphite-200 bg-soft-white text-graphite-600 hover:border-graphite-400',
@@ -70,7 +70,7 @@ export default function GalleryPreview() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="absolute inset-x-0 bottom-0 translate-y-4 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-soft-white backdrop-blur-sm">
+                  <span className="inline-flex rounded-none bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-soft-white backdrop-blur-sm">
                     {item.category}
                   </span>
                   <p className="mt-2 text-sm text-soft-white">{item.caption}</p>

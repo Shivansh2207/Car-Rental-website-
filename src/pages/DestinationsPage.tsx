@@ -46,7 +46,7 @@ export default function DestinationsPage() {
                   </div>
                 </div>
                 <div className={i % 2 ? 'lg:order-1' : undefined}>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+                  <span className="inline-flex items-center gap-1.5 rounded-none bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
                     <MapPin className="h-3 w-3" aria-hidden="true" /> {d.bestFor}
                   </span>
                   <h2 className="mt-3 font-heading text-2xl font-bold text-graphite-900 sm:text-3xl">{d.name}</h2>

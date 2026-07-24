@@ -43,9 +43,20 @@ export default {
         heading: ['"Space Grotesk"', '"Manrope"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
+      // Sharp, editorial design language: no box radii anywhere.
+      // `full` is preserved for genuine circles (icon buttons, status dots).
       borderRadius: {
-        '4xl': '2rem',
-        '5xl': '2.5rem',
+        none: '0',
+        sm: '0',
+        DEFAULT: '0',
+        md: '0',
+        lg: '0',
+        xl: '0',
+        '2xl': '0',
+        '3xl': '0',
+        '4xl': '0',
+        '5xl': '0',
+        full: '9999px',
       },
       boxShadow: {
         soft: '0 4px 24px -8px rgba(16, 18, 20, 0.12)',

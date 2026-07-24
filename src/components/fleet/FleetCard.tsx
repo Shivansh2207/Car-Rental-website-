@@ -33,11 +33,11 @@ export default function FleetCard({ vehicle, className }: FleetCardProps) {
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/30 to-transparent" />
-        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-soft-white/90 px-3 py-1 text-xs font-semibold text-graphite-900 backdrop-blur-sm">
+        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-none bg-soft-white/90 px-3 py-1 text-xs font-semibold text-graphite-900 backdrop-blur-sm">
           {vehicle.category}
         </span>
         {vehicle.tier === 'Premium' && (
-          <span className="absolute right-4 top-4 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-soft-white">
+          <span className="absolute right-4 top-4 rounded-none bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-soft-white">
             Premium
           </span>
         )}
@@ -59,7 +59,7 @@ export default function FleetCard({ vehicle, className }: FleetCardProps) {
         <div className="mt-6 flex items-center gap-2 pt-2">
           <Link
             to={`/fleet/${vehicle.slug}`}
-            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full border border-graphite-200 px-4 py-2.5 text-sm font-semibold text-graphite-800 transition-colors hover:border-graphite-900 hover:bg-ivory"
+            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-none border border-graphite-200 px-4 py-2.5 text-sm font-semibold text-graphite-800 transition-colors hover:border-graphite-900 hover:bg-ivory"
           >
             View Details
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -69,7 +69,7 @@ export default function FleetCard({ vehicle, className }: FleetCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Request a quote for ${vehicle.name}`}
-            className="inline-flex items-center justify-center gap-1.5 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-soft-white transition-colors hover:bg-accent-hover"
+            className="inline-flex items-center justify-center gap-1.5 rounded-none bg-accent px-4 py-2.5 text-sm font-semibold text-soft-white transition-colors hover:bg-accent-hover"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
             <span className="hidden sm:inline">Request a Quote</span>

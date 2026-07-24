@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
-import { Reveal, ImageReveal, StaggerContainer, StaggerItem } from '@/components/motion';
+import { Reveal, GsapParallax, StaggerContainer, StaggerItem } from '@/components/motion';
 import { buildImage, images } from '@/data/images';
 
 const offerings = [
@@ -61,14 +61,14 @@ export default function CorporateSection() {
         </Reveal>
 
         <div className="order-1 lg:order-2">
-          <ImageReveal
+          <GsapParallax
             src={img}
             alt="Executive passenger and chauffeur near a premium sedan at an office entrance"
-            from="right"
-            wrapperClassName="aspect-[4/5] rounded-5xl"
+            amount={8}
+            wrapperClassName="aspect-[4/5]"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/40 to-transparent" />
-          </ImageReveal>
+          </GsapParallax>
         </div>
       </div>
     </section>

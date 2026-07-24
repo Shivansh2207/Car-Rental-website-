@@ -38,7 +38,7 @@ export default function NotFoundPage() {
 
           <Link
             to="/"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-soft-white transition-colors hover:bg-accent-hover"
+            className="mt-8 inline-flex items-center gap-2 rounded-none bg-accent px-6 py-3 text-sm font-semibold text-soft-white transition-colors hover:bg-accent-hover"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Return to Home
