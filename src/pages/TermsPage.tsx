@@ -8,7 +8,7 @@ export default function TermsPage() {
     <>
       <Seo
         title={`Terms & Conditions — ${siteData.company.name}`}
-        description="Terms and conditions for the Apex Drive Rentals website."
+        description="Terms and conditions for the Shree Krishna Car Rentals website."
         path="/terms"
         jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Terms & Conditions', path: '/terms' }])}
       />

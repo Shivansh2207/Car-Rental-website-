@@ -9,8 +9,8 @@ import type { NavLink } from '@/types/site';
 
 export const siteData = {
   company: {
-    name: 'Apex Drive Rentals',
-    shortName: 'Apex Drive',
+    name: 'Shree Krishna Car Rentals',
+    shortName: 'Shree Krishna',
     tagline: 'Your Journey. Our Responsibility.',
     /** Short brand statement used in intros and footers */
     statement: 'Dependable car rentals for every journey across Mumbai.',

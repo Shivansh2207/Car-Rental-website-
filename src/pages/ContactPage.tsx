@@ -10,7 +10,7 @@ export default function ContactPage() {
     <>
       <Seo
         title={`Contact Us — ${siteData.company.name}`}
-        description="Contact Apex Drive Rentals for car rental enquiries in Mumbai, Navi Mumbai and Thane. Call, WhatsApp or fill out our enquiry form."
+        description="Contact Shree Krishna Car Rentals for car rental enquiries in Mumbai, Navi Mumbai and Thane. Call, WhatsApp or fill out our enquiry form."
         path="/contact"
         jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])}
       />
@@ -119,7 +119,7 @@ export default function ContactPage() {
             <h2 className="font-heading text-xl font-bold text-graphite-900 text-center">Find Us in Mumbai</h2>
             <div className="mt-6 overflow-hidden rounded-4xl border border-graphite-200/70 shadow-card">
               <iframe
-                title="Apex Drive Rentals location"
+                title="Shree Krishna Car Rentals location"
                 src={`https://www.google.com/maps/embed/v1/place?key=&q=${encodeURIComponent(siteData.contact.mapEmbedQuery)}&zoom=12`}
                 width="100%"
                 height="400"

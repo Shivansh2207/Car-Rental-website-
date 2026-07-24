@@ -8,7 +8,7 @@ export default function PrivacyPage() {
     <>
       <Seo
         title={`Privacy Policy — ${siteData.company.name}`}
-        description="Privacy policy for Apex Drive Rentals. Learn how enquiry information is handled."
+        description="Privacy policy for Shree Krishna Car Rentals. Learn how enquiry information is handled."
         path="/privacy"
         jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Privacy Policy', path: '/privacy' }])}
       />

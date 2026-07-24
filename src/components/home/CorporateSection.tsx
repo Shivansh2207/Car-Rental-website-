@@ -33,7 +33,7 @@ export default function CorporateSection() {
           </h2>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-graphite-500">
             From executive airport transfers and client visits to employee transportation and corporate
-            events, Apex Drive Rentals provides organised travel support for businesses of every size.
+            events, Shree Krishna Car Rentals provides organised travel support for businesses of every size.
           </p>
 
           <StaggerContainer as="ul" className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.07}>

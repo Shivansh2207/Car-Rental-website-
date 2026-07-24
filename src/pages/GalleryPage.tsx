@@ -33,7 +33,7 @@ export default function GalleryPage() {
         <div className="container-px">
           <span className="eyebrow text-accent-soft">Gallery</span>
           <h1 className="mt-4 max-w-2xl font-heading text-4xl font-bold leading-tight sm:text-5xl">
-            On the Road With Apex Drive
+            On the Road With Shree Krishna
           </h1>
         </div>
       </section>

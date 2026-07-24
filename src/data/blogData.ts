@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     cover: buildImage(images.blog.roadTrips, { w: 1400, h: 800 }),
     coverAlt: 'Scenic highway leading out of Mumbai for a weekend road trip',
     category: 'Travel Guides',
-    author: 'Apex Drive Editorial',
+    author: 'Shree Krishna Editorial',
     date: '2025-01-12',
     readingTime: '6 min read',
     sections: [
@@ -68,7 +68,7 @@ export const blogPosts: BlogPost[] = [
     cover: buildImage(images.blog.chooseCar, { w: 1400, h: 800 }),
     coverAlt: 'Comparison of vehicle types for choosing the right outstation car',
     category: 'Vehicle Guides',
-    author: 'Apex Drive Editorial',
+    author: 'Shree Krishna Editorial',
     date: '2025-02-04',
     readingTime: '5 min read',
     sections: [
@@ -110,7 +110,7 @@ export const blogPosts: BlogPost[] = [
     cover: buildImage(images.blog.airportTips, { w: 1400, h: 800 }),
     coverAlt: 'Traveller heading towards an airport terminal',
     category: 'Airport Travel',
-    author: 'Apex Drive Editorial',
+    author: 'Shree Krishna Editorial',
     date: '2025-02-20',
     readingTime: '4 min read',
     sections: [
@@ -149,7 +149,7 @@ export const blogPosts: BlogPost[] = [
     cover: buildImage(images.blog.monsoon, { w: 1400, h: 800 }),
     coverAlt: 'Lush green monsoon hills along a driving route near Mumbai',
     category: 'Outstation Trips',
-    author: 'Apex Drive Editorial',
+    author: 'Shree Krishna Editorial',
     date: '2025-06-10',
     readingTime: '5 min read',
     sections: [
@@ -183,7 +183,7 @@ export const blogPosts: BlogPost[] = [
     cover: buildImage(images.blog.corporateMobility, { w: 1400, h: 800 }),
     coverAlt: 'Professionals coordinating corporate ground transportation',
     category: 'Corporate Mobility',
-    author: 'Apex Drive Editorial',
+    author: 'Shree Krishna Editorial',
     date: '2025-03-15',
     readingTime: '6 min read',
     sections: [
@@ -216,7 +216,7 @@ export const blogPosts: BlogPost[] = [
     cover: buildImage(images.blog.outstationGuide, { w: 1400, h: 800 }),
     coverAlt: 'Mumbai landmarks ideal for a city sightseeing tour',
     category: 'Mumbai Travel',
-    author: 'Apex Drive Editorial',
+    author: 'Shree Krishna Editorial',
     date: '2025-04-02',
     readingTime: '5 min read',
     sections: [

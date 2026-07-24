@@ -5,6 +5,7 @@ import AnnouncementBar from './AnnouncementBar';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import FloatingContact from './FloatingContact';
+import ChatWidget from './ChatWidget';
 import { ScrollProgress, ScrollToTop } from '@/components/motion';
 import useReducedMotion from '@/hooks/useReducedMotion';
 
@@ -35,6 +36,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <div className="h-16 lg:hidden" aria-hidden="true" />
       <Footer />
       <FloatingContact />
+      <ChatWidget />
       <ScrollToTop />
     </div>
   );

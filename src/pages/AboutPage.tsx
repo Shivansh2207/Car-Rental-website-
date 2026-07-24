@@ -36,7 +36,7 @@ export default function AboutPage() {
     <>
       <Seo
         title={`About Us — ${siteData.company.name}`}
-        description="Learn about Apex Drive Rentals — a dependable car rental company serving Mumbai, Navi Mumbai and Thane for over a decade."
+        description="Learn about Shree Krishna Car Rentals — a dependable car rental company serving Mumbai, Navi Mumbai and Thane for over a decade."
         path="/about"
         jsonLd={breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'About Us', path: '/about' }])}
       />

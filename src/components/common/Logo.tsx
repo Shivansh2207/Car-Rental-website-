@@ -44,7 +44,7 @@ export default function Logo({ variant = 'dark', className }: LogoProps) {
             isLight ? 'text-soft-white' : 'text-graphite-900',
           )}
         >
-          APEX
+          {siteData.company.shortName.toUpperCase()}
         </span>
         <span
           className={cn(
@@ -52,7 +52,7 @@ export default function Logo({ variant = 'dark', className }: LogoProps) {
             isLight ? 'text-soft-white/70' : 'text-graphite-500',
           )}
         >
-          Drive Rentals
+          Car Rentals
         </span>
       </span>
     </Link>

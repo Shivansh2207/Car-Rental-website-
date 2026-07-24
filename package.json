@@ -1,9 +1,9 @@
 {
-  "name": "apex-drive-rentals",
+  "name": "shree-krishna-car-rentals",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Apex Drive Rentals — premium car rental company profile website for Mumbai",
+  "description": "Shree Krishna Car Rentals — premium car rental company profile website for Mumbai",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -18,7 +18,7 @@ export default function GalleryPreview() {
         <SectionReveal>
           <SectionHeading
             eyebrow="Gallery"
-            title="On the Road With Apex Drive"
+            title="On the Road With Shree Krishna"
             subtitle="A collection of our vehicles, journeys and travel experiences."
           />
         </SectionReveal>

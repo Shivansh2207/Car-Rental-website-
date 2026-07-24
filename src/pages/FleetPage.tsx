@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import Seo from '@/components/common/Seo';
 import SectionReveal from '@/components/common/SectionReveal';
 import FleetCard from '@/components/fleet/FleetCard';
@@ -95,6 +95,7 @@ function FleetListing() {
 }
 
 function VehicleDetail({ vehicle }: { vehicle: NonNullable<ReturnType<typeof getVehicleBySlug>> }) {
+  const [activeImage, setActiveImage] = useState(0);
   const similar = getSimilarVehicles(vehicle);
   const wa = whatsappLink(`Hello ${siteData.company.name}, I'd like to enquire about the ${vehicle.name} (${vehicle.category}).`);
 
@@ -104,6 +105,12 @@ function VehicleDetail({ vehicle }: { vehicle: NonNullable<ReturnType<typeof get
     { icon: Snowflake, label: 'AC', value: vehicle.airConditioning ? 'Yes' : 'No' },
     { icon: ArrowRightLeft, label: 'Transmission', value: vehicle.transmission },
   ];
+  const vehicleImages = vehicle.images.filter(Boolean);
+  const currentImage = vehicleImages[activeImage] ?? vehicleImages[0];
+
+  function stepImage(direction: number) {
+    setActiveImage((index) => (index + direction + vehicleImages.length) % vehicleImages.length);
+  }
 
   return (
     <>
@@ -124,31 +131,40 @@ function VehicleDetail({ vehicle }: { vehicle: NonNullable<ReturnType<typeof get
             <ArrowRight className="h-4 w-4 rotate-180" aria-hidden="true" /> Back to Fleet
           </Link>
 
-          <div className="grid gap-10 lg:grid-cols-2">
+          <div className="grid items-start gap-10 lg:grid-cols-2">
             {/* Images */}
             <SectionReveal>
-              <div className="overflow-hidden rounded-5xl">
+              <div className="group relative overflow-hidden rounded-5xl border border-graphite-200/70 bg-graphite-100 shadow-card">
                 <SmartImage
-                  src={vehicle.images[0]}
+                  src={currentImage}
                   alt={vehicle.imageAlt}
                   wrapperClassName="aspect-[16/11]"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-graphite-950/65 to-transparent px-5 pb-5 pt-12 text-soft-white">
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em]">{vehicle.tier} collection</span>
+                  <span className="rounded-full bg-white/15 px-3 py-1 text-xs backdrop-blur-sm">{activeImage + 1} / {vehicleImages.length}</span>
+                </div>
+                {vehicleImages.length > 1 && (
+                  <>
+                    <button type="button" onClick={() => stepImage(-1)} aria-label="Previous vehicle image" className="absolute left-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-soft-white/90 text-graphite-900 opacity-0 shadow-soft transition-all group-hover:opacity-100 hover:bg-white"><ChevronLeft className="h-5 w-5" /></button>
+                    <button type="button" onClick={() => stepImage(1)} aria-label="Next vehicle image" className="absolute right-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-soft-white/90 text-graphite-900 opacity-0 shadow-soft transition-all group-hover:opacity-100 hover:bg-white"><ChevronRight className="h-5 w-5" /></button>
+                  </>
+                )}
               </div>
-              {vehicle.images[1] && (
-                <div className="mt-4 overflow-hidden rounded-3xl">
-                  <SmartImage
-                    src={vehicle.images[1]}
-                    alt={`${vehicle.name} alternative view`}
-                    wrapperClassName="aspect-[16/9]"
-                    className="h-full w-full object-cover"
-                  />
+              {vehicleImages.length > 1 && (
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  {vehicleImages.map((image, index) => (
+                    <button key={image} type="button" onClick={() => setActiveImage(index)} aria-label={`View vehicle image ${index + 1}`} aria-pressed={activeImage === index} className={`relative aspect-[16/9] overflow-hidden rounded-2xl border-2 transition-all ${activeImage === index ? 'border-accent shadow-glow' : 'border-transparent opacity-70 hover:opacity-100'}`}>
+                      <img src={image} alt="" className="h-full w-full object-cover" />
+                    </button>
+                  ))}
                 </div>
               )}
             </SectionReveal>
 
             {/* Details */}
-            <SectionReveal delay={0.1}>
+            <SectionReveal delay={0.1} className="lg:sticky lg:top-28">
               <span className="inline-flex rounded-none bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
                 {vehicle.category} {vehicle.tier === 'Premium' ? '· Premium' : ''}
               </span>
@@ -172,23 +188,27 @@ function VehicleDetail({ vehicle }: { vehicle: NonNullable<ReturnType<typeof get
                 ))}
               </dl>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 rounded-3xl border border-graphite-200/70 bg-ivory/50 p-5">
+                <div className="flex items-center gap-2 text-sm font-semibold text-graphite-800"><Sparkles className="h-4 w-4 text-accent" /> Ready for a tailored recommendation?</div>
+                <p className="mt-2 text-xs leading-relaxed text-graphite-500">Share your route and date. We’ll confirm availability, driver details and the best-fit quote.</p>
+                <div className="mt-4 flex flex-wrap gap-3">
                 <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-primary">
                   <MessageCircle className="h-4 w-4" aria-hidden="true" /> Request a Quote
                 </a>
                 <Link to="/contact" className="btn-secondary group">
                   Talk to Our Team <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </Link>
+                </div>
               </div>
             </SectionReveal>
           </div>
 
           {/* Features */}
           <SectionReveal className="mt-14">
-            <h2 className="font-heading text-xl font-bold text-graphite-900">Comfort Features</h2>
+            <div className="flex items-end justify-between gap-4"><div><span className="eyebrow">Included with your journey</span><h2 className="mt-2 font-heading text-xl font-bold text-graphite-900">Comfort Features</h2></div><span className="hidden text-xs font-semibold uppercase tracking-wide text-graphite-400 sm:inline">Prepared for the road</span></div>
             <div className="mt-4 flex flex-wrap gap-2">
               {vehicle.features.map((f) => (
-                <span key={f} className="rounded-none border border-graphite-200 bg-soft-white px-4 py-2 text-sm text-graphite-700">
+                <span key={f} className="inline-flex items-center gap-2 rounded-full border border-graphite-200 bg-soft-white px-4 py-2 text-sm text-graphite-700 shadow-soft"><CheckCircle2 className="h-4 w-4 text-accent" />
                   {f}
                 </span>
               ))}
